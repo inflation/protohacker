@@ -1,0 +1,3 @@
+release:
+    cargo +stable build --release --target aarch64-unknown-linux-gnu
+    fly deploy
