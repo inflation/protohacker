@@ -1,0 +1,22 @@
+# fly.toml file generated for budget-chat on 2023-02-21T14:23:29+08:00
+
+app = "mob-in-the-middle"
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[env]
+OTEL_EXPORTER_OTLP_ENDPOINT = "https://otel-exporter.internal:4317"
+OTEL_SERVICE_NAME = "mob-in-the-middle"
+RUST_LOG = "mob_in_the_middle=debug"
+
+[experimental]
+auto_rollback = true
+
+[[services]]
+internal_port = 1729
+processes = ["app"]
+protocol = "tcp"
+
+[[services.ports]]
+port = 1729
